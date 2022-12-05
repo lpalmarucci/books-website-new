@@ -10,4 +10,8 @@ export const commonRoutes: RouteType[] = [
         component: lazy(() => import('../pages/home/home.page')),
         path: RoutePaths.HOME,
     },
+    {
+        component: lazy(() => import('../pages/404/404.page')),
+        path: '*'
+    }
 ];
