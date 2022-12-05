@@ -23,6 +23,17 @@ function App() {
                 '"Segoe UI Symbol"',
               ].join(','),
             },
+            palette: {
+              primary: {
+                main: '#242424',
+              },
+              background: {
+                default: '#242424'
+              },
+              text: {
+                primary: '#FFF'
+              }
+            }
           }),
       [prefersDarkMode],
   );
