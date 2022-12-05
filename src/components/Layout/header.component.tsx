@@ -1,8 +1,36 @@
-import React from "react";
-import {AppBar, Box, Container, IconButton, Menu, MenuItem, Toolbar, Typography} from "@mui/material";
+import React, {useState} from "react";
+import {
+  AppBar,
+  Box, Button,
+  Container,
+  Drawer,
+  IconButton,
+  makeStyles,
+  Menu,
+  MenuItem,
+  Toolbar,
+  Typography
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import {RoutePaths} from "../../routes/common.routes";
+import Sidebar from "./Sidebar.component";
+import {useNavigate} from "react-router-dom";
+
+const pages: {label: string, path: string}[] = [
+  {
+    label: 'Search',
+    path: RoutePaths.HOME
+  },
+  {
+    label: 'Saved',
+    path: '/saved'
+  }
+]
 
 const Header = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const navigate = useNavigate();
+
   return (
     <AppBar position="static" variant="outlined">
       <Container maxWidth="xl">
@@ -11,7 +39,7 @@ const Header = () => {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            href={RoutePaths.HOME}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -22,7 +50,7 @@ const Header = () => {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Books Website
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -31,45 +59,18 @@ const Header = () => {
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              // onClick={handleOpenNavMenu}
+              onClick={() => setIsMobileMenuOpen(true)}
               color="inherit"
             >
               <MenuIcon />
             </IconButton>
-            <Menu
-              open={false}
-              id="menu-appbar"
-              // anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              // open={Boolean(anchorElNav)}
-              // onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              <MenuItem>
-                <Typography textAlign="center">Home</Typography>
-              </MenuItem>
-              {/*{pages.map((page) => (*/}
-              {/*  <MenuItem key={page} onClick={handleCloseNavMenu}>*/}
-              {/*    <Typography textAlign="center">{page}</Typography>*/}
-              {/*  </MenuItem>*/}
-              {/*))}*/}
-            </Menu>
+            <Sidebar isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen}/>
           </Box>
           <Typography
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href={RoutePaths.HOME}
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -83,16 +84,17 @@ const Header = () => {
           >
             LOGO
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {/*{pages.map((page) => (*/}
-            {/*  <Button*/}
-            {/*    key={page}*/}
-            {/*    onClick={handleCloseNavMenu}*/}
-            {/*    sx={{ my: 2, color: 'white', display: 'block' }}*/}
-            {/*  >*/}
-            {/*    {page}*/}
-            {/*  </Button>*/}
-            {/*))}*/}
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, ml: 12, gap: 2 }}>
+            {
+              pages.map((page) => (
+                <Button
+                  onClick={() => navigate(page.path)}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  {page.label}
+                </Button>
+              ))
+            }
           </Box>
         </Toolbar>
       </Container>
