@@ -14,8 +14,17 @@ const PageNotFound = () => {
         height: 'calc(100vh - 80px)'
       }}
     >
-      <Typography variant="h1" fontWeight={700} fontSize={220}>404</Typography>
-      <Typography variant="h3" fontWeight={700} fontSize={100}>Pagina non trovata</Typography>
+      <Typography
+        variant="h1"
+        fontWeight={700}
+        sx={{ fontSize: { md: 220, xs: 150 } }}
+      >404</Typography>
+      <Typography
+        variant="h3"
+        fontWeight={700}
+        whiteSpace="nowrap"
+        sx={{ fontSize: { md: 110, xs: 35 }}}
+      >Pagina non trovata</Typography>
     </Container>
   )
 }
