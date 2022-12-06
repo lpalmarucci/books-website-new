@@ -23,6 +23,15 @@ function App() {
                 '"Segoe UI Symbol"',
               ].join(','),
             },
+            components:{
+              MuiPaper: {
+                styleOverrides: {
+                  elevation: {
+                    backgroundColor: "#242424"
+                  }
+                }
+              }
+            },
             palette: {
               primary: {
                 main: '#242424',
