@@ -23,7 +23,7 @@ const Sidebar: React.FC<IProps> = ({
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <ManageSearchIcon />
+                <ManageSearchIcon style={{ color: 'white' }}/>
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
@@ -39,7 +39,7 @@ const Sidebar: React.FC<IProps> = ({
       open={isOpen}
       onClose={() => setIsOpen(false)}
     >
-      <Typography>CIAOOO</Typography>
+      {list()}
     </Drawer>
   )
 }

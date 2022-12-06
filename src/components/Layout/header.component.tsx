@@ -32,7 +32,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <AppBar position="static" variant="outlined">
+    <AppBar position="static" variant="outlined" sx={{boxShadow: "0px .3px 1px rgba(225,225,255,0.3)"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -82,7 +82,7 @@ const Header = () => {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Books Website
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, ml: 12, gap: 2 }}>
             {
