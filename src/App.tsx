@@ -36,6 +36,10 @@ function App() {
               primary: {
                 main: '#242424',
               },
+              secondary: {
+                main: '#fff',
+                contrastText: "#242424"
+              },
               background: {
                 default: '#242424'
               },
