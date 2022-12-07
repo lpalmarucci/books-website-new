@@ -4,16 +4,7 @@ import withLayout from '../../hoc/withLayout'
 
 const PageNotFound = () => {
   return (
-    <Container
-      maxWidth="md"
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 'calc(100vh - 80px)'
-      }}
-    >
+    <React.Fragment>
       <Typography
         variant="h1"
         fontWeight={700}
@@ -25,7 +16,7 @@ const PageNotFound = () => {
         whiteSpace="nowrap"
         sx={{ fontSize: { md: 110, xs: 35 }}}
       >Pagina non trovata</Typography>
-    </Container>
+    </React.Fragment>
   )
 }
 

@@ -3,11 +3,7 @@ import {
   AppBar,
   Box, Button,
   Container,
-  Drawer,
   IconButton,
-  makeStyles,
-  Menu,
-  MenuItem,
   Toolbar,
   Typography
 } from "@mui/material";
@@ -19,7 +15,7 @@ import {useNavigate} from "react-router-dom";
 const pages: {label: string, path: string}[] = [
   {
     label: 'Search',
-    path: RoutePaths.HOME
+    path: RoutePaths.SEARCH
   },
   {
     label: 'Saved',
