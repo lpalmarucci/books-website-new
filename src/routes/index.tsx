@@ -1,6 +1,7 @@
 import React, {Suspense} from 'react';
 import {Route} from 'react-router-dom';
 import {commonRoutes} from './common.routes';
+import SplashScreen from "../components/SplashScreen";
 
 export interface RouteType {
     path: string;
@@ -21,7 +22,7 @@ export const renderRoutes = () =>
                 path={path}
                 key={path}
                 element={
-                    <Suspense fallback={<span>Loading...</span>}>
+                    <Suspense fallback={<SplashScreen />}>
                         <Component/>
                     </Suspense>
                 }/>
